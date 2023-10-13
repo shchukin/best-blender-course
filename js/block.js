@@ -343,64 +343,92 @@ function setItemTypeVideo(data, i){
 
 $(document).ready(function () {
 
-    const filters = [
-        "modeling",
-        "characters",
-        "rigging",
-        "animation",
-        "lighting",
-        "texturing",
-        "bestseller",
-        "mad-rabbit",
-        "another-speaker",
-        "for-illustrators",
-        "for-designers",
-        "from-scratch",
-        "with-experience"
-    ];
-
-    let activeFilters = new Set();
+    // const filters = [
+    //     "modeling",
+    //     "characters",
+    //     "rigging",
+    //     "animation",
+    //     "lighting",
+    //     "texturing",
+    //     "bestseller",
+    //     "mad-rabbit",
+    //     "another-speaker",
+    //     "for-illustrators",
+    //     "for-designers",
+    //     "from-scratch",
+    //     "with-experience"
+    // ];
+    //
+    // let activeFilters = new Set();
 
     function runFilter() {
+    //
+    //     /* Скрываем / показываем плитки */
+    //
+    //     /* Если хотя бы один фильтр активен */
+    //     if( activeFilters.size ) {
+    //
+    //         $('.new-item-chapter').hide(); // Скрываем все
+    //
+    //         activeFilters.forEach(value => { // Показываем только нужные
+    //             $('.new-item-chapter[data-category*="' + value + '"]').show();
+    //         });
+    //
+    //     } else {
+    //         $('.new-item-chapter').show();
+    //     }
+    //
+    //
+    //     /* Скрываем / показываем ярлычки фильтров */
+    //
+    //     $('.filter__item--selected').removeClass('filter__item--selected'); // Скрываем все
+    //
+    //     activeFilters.forEach(value => {
+    //         $('.filter__item[data-filter="' + value + '"]').addClass('filter__item--selected'); // Показываем только нужные
+    //     });
+    //
 
-        /* Скрываем / показываем плитки */
-
-        /* Если хотя бы один фильтр активен */
-        if( activeFilters.size ) {
-
-            $('.new-item-chapter').hide(); // Скрываем все
-
-            activeFilters.forEach(value => { // Показываем только нужные
-                $('.new-item-chapter[data-category*="' + value + '"]').show();
-            });
-
-        } else {
-            $('.new-item-chapter').show();
-        }
+        let currentFilters = [];
+        $('.filter__item--selected').each(function () {
+            currentFilters.push( $(this).data('filter'));
+        });
 
 
-        /* Скрываем / показываем ярлычки фильтров */
 
-        $('.filter__item--selected').removeClass('filter__item--selected'); // Скрываем все
-
-        activeFilters.forEach(value => {
-            $('.filter__item[data-filter="' + value + '"]').addClass('filter__item--selected'); // Показываем только нужные
+        /* Проверяем, каждый элемент на то, чтобы он включал в себя все выбранные фильтры */
+        $('.new-item-chapter').each(function () {
+            if( currentFilters.every(item => $(this).data('category').includes(item)) ) {
+                $(this).show();
+            } else {
+                $(this).hide();
+            }
         });
 
     }
 
 
     $('.filter__item').on('click', function () {
-        if( ! $(this).hasClass('filter__item--selected') ) {
-            activeFilters.add( $(this).data('filter') );
-        } else {
-            activeFilters.delete( $(this).data('filter') );
-        }
+
+        const currentGroup = $(this).data('group');
+
+        $('[data-group="' + currentGroup + '"]').not( $(this) ).removeClass('filter__item--selected')
+
+        $(this).toggleClass('filter__item--selected');
+
+
+
+
+        // if( ! $(this).hasClass('filter__item--selected') ) {
+        //     activeFilters.add( $(this).data('filter') );
+        // } else {
+        //     activeFilters.delete( $(this).data('filter') );
+        // }
         runFilter();
     });
 
     $('.filter__reset').on('click', function () {
-        activeFilters.clear();
+        // activeFilters.clear();
+        $('.filter__item--selected').removeClass('filter__item--selected');
         runFilter();
     });
 });
