@@ -9,7 +9,7 @@ $(document).ready(function() {
 //     let modal = $('#sale-modal')
 //     open_imodal(modal);
 //     sessionStorage.setItem('openedSaleModal', '1')
-//   }    
+//   }
 // });
 
 // if (matchMedia("screen and (max-width: 1023px)").matches) {
@@ -20,15 +20,15 @@ $(document).ready(function() {
 //       let modal = $('#sale-modal')
 //       open_imodal(modal);
 //       sessionStorage.setItem('openedSaleModal', '1')
-//     }    
+//     }
 
 //   });
 
 // }
 
 // //Отслеживаем клик по блоку на главной странице
-$('#sale-modal').on( "click","#copy-btn", function() {  
-    
+$('#sale-modal').on( "click","#copy-btn", function() {
+
   $(this).addClass("active");
 
   // копирование промокода в буфер обмена
@@ -42,7 +42,7 @@ $('#sale-modal').on( "click","#copy-btn", function() {
   // закрываем окно с попапом
   close_imodal();
 
-    
+
   // "уезжаем" к разделу заказа блоков
   var scroll_el = $(".pp_base");
   var header_heigth = $(".header").outerHeight();
@@ -84,11 +84,11 @@ function close_imodal(){
 };
 
 //Отслеживаем клик по блоку на главной странице
-$('.new-item-chapters-wrapper').on( "click",".new-item-chapter", function() {  
-    
+$('.new-item-chapters-wrapper').on( "click",".new-item-chapter", function() {
+
   let blockNumber = $(this).attr('data-block');
     let inCart = false;
-    
+
     //Узнаем добавлен ли блок в корзину
     if($(`.pp_ls_block[data-block="${blockNumber}"]`).hasClass('checked_block')){
         inCart = true;
@@ -135,7 +135,7 @@ async function setInfo(info, inCart, blockNumber){
 
     //Добавляем преподавателей
     item.find('.teachers-wrapper').html('')
-    
+
     info['teachers'].forEach(function (e) {
         i = `
         <div class="teacher-item">
@@ -191,7 +191,7 @@ async function setInfo(info, inCart, blockNumber){
         $('.buy-btn').removeClass('active');
         console.log('2')
     }
-  
+
 }
 
 ///// Работа кнопки
@@ -206,7 +206,7 @@ $(".buy-btn").click(function(e) {
 $(document).ready(function() {
 
   let itemsCount = 11; // Тут нужно подумать как тянуть число json файлов
-  for (let i = 1; i <= itemsCount; i++) { 
+  for (let i = 1; i <= itemsCount; i++) {
     $.getJSON(`/blocks/${i}-block.json`,function(data){
       if(data['type-preview'] == "video"){
         setItemTypeVideo(data, i)
@@ -217,7 +217,7 @@ $(document).ready(function() {
     });
   }
 
-});   
+});
 
 function setItemTypeImg(data, i){
   let progress = '';
@@ -229,14 +229,14 @@ function setItemTypeImg(data, i){
     progress = 'no-timeline';
   }
 
-  var strInstPrice = ""; 
+  var strInstPrice = "";
   if ((isNaN(BBC_Inst_price[i])) || (progress.length > 0)) {
     strInstPrice = data['price-title']
   } else {
     strInstPrice = 'от ' + (Math.ceil(BBC_Inst_price[i] / 12 / 10) * 10).toLocaleString() + ' ₽ в месяц';
   }
 
-  var strFullPrice = ""; 
+  var strFullPrice = "";
   if ((isNaN(BBC_Full_price[i])) || (progress.length > 0)) {
     strFullPrice = data['price-description']
   } else {
@@ -275,7 +275,7 @@ function setItemTypeImg(data, i){
 
   </div>
   `;
-  
+
   $('.new-item-chapters-wrapper').append(item);
 
 };
@@ -290,14 +290,14 @@ function setItemTypeVideo(data, i){
     progress = 'no-timeline';
   }
 
-  var strInstPrice = ""; 
+  var strInstPrice = "";
   if ((isNaN(BBC_Inst_price[i])) || (progress.length > 0)) {
     strInstPrice = data['price-title']
   } else {
     strInstPrice = 'от ' + (Math.ceil(BBC_Inst_price[i] / 12 / 10) * 10).toLocaleString() + ' ₽ в месяц';
   }
 
-  var strFullPrice = ""; 
+  var strFullPrice = "";
   if ((isNaN(BBC_Full_price[i])) || (progress.length > 0)) {
     strFullPrice = data['price-description']
   } else {
@@ -336,7 +336,7 @@ function setItemTypeVideo(data, i){
 
   </div>
   `;
-  
+
   $('.new-item-chapters-wrapper').append(item);
 
 };
@@ -352,12 +352,12 @@ function setItemTypeVideo(data, i){
 //     <div class="chapter-cover">
 // 						<img class="lazy" src="${data['preview-img']}" alt="${data['title']}">
 //     </div>
-    
+
 //     <div class="item-content">
 
 //       <div class="item-chapter-header">
 //         <div class="info-wrapper">
-         
+
 //             <div class="pretitle">Блок ${i}</div>
 //             <div class="lessons-icon"><span class="icon-text">${data['lessons']}</span></div>
 //             <div class="time-icon"><span class="icon-text">${data['time']}</span></div>
@@ -365,7 +365,7 @@ function setItemTypeVideo(data, i){
 //         </div>
 //         <div class="title">${data['title']}</div>
 //       </div>
-      
+
 //       <div class="price-wrapper">
 //         <div class="title">
 //           ${data['price-title']}
@@ -379,7 +379,7 @@ function setItemTypeVideo(data, i){
 
 //   </div>
 //   `;
-  
+
 //   $('.new-item-chapters-wrapper').append(item);
 
 // };
@@ -394,7 +394,7 @@ function setItemTypeVideo(data, i){
 //       <video preload="auto" muted="muted" loop autoplay playsinline>
 //         <source src="${data['preview-img']}" alt="Видео загружается...">
 //       </video>
-//     </div>  
+//     </div>
 
 //     <div class="item-content">
 //       <div class="item-chapter-header">
@@ -405,7 +405,7 @@ function setItemTypeVideo(data, i){
 //         </div>
 //         <div class="title">${data['title']}</div>
 //       </div>
-      
+
 //       <div class="price-wrapper">
 //         <div class="title">
 //           ${data['price-title']}
@@ -419,7 +419,7 @@ function setItemTypeVideo(data, i){
 
 //   </div>
 //   `;
-  
+
 //   $('.new-item-chapters-wrapper').append(item);
 
 // };
@@ -437,7 +437,7 @@ function setItemTypeVideo(data, i){
 //   }
 
 //   $('.new-item-chapter').each(function() {
-//     // let gridRow = Math.round($(this).height() / 20); 
+//     // let gridRow = Math.round($(this).height() / 20);
 //     // console.log(gridRow);
 //     // $(this).css('grid-row',`span ${gridRow}`);
 //     if($( this ).height() > get_minHeight_massonry()){
