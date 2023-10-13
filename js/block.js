@@ -244,7 +244,7 @@ function setItemTypeImg(data, i){
   }
 
   let item = `
-  <div class="new-item-chapter ${progress} i-modal-btn text-${data['text-color']}" style="order:${i}" data-popup-id="block-modal" data-block="${i}">
+  <div class="new-item-chapter ${progress} i-modal-btn text-${data['text-color']}" style="order:${i}" data-popup-id="block-modal" data-block="${i}" data-category="${data['category'].join(', ')}">
     <div class="chapter-cover">
 						<img class="lazy" src="${data['preview-img']}" alt="${data['title']}">
     </div>
@@ -305,7 +305,7 @@ function setItemTypeVideo(data, i){
   }
 
   let item = `
-  <div class="new-item-chapter ${progress} i-modal-btn text-${data['text-color']}" style="order:${i}" data-popup-id="block-modal" data-block="${i}">
+  <div class="new-item-chapter ${progress} i-modal-btn text-${data['text-color']}" style="order:${i}" data-popup-id="block-modal" data-block="${i}" data-category="${data['category'].join(', ')}">
     <div class="chapter-cover">
       <video preload="auto" muted="muted" loop autoplay playsinline>
         <source src="${data['preview-img']}" alt="Видео загружается...">
@@ -340,6 +340,70 @@ function setItemTypeVideo(data, i){
   $('.new-item-chapters-wrapper').append(item);
 
 };
+
+$(document).ready(function () {
+
+    const filters = [
+        "modeling",
+        "characters",
+        "rigging",
+        "animation",
+        "lighting",
+        "texturing",
+        "bestseller",
+        "mad-rabbit",
+        "another-speaker",
+        "for-illustrators",
+        "for-designers",
+        "from-scratch",
+        "with-experience"
+    ];
+
+    let activeFilters = new Set();
+
+    function runFilter() {
+
+        /* Скрываем / показываем плитки */
+
+        /* Если хотя бы один фильтр активен */
+        if( activeFilters.size ) {
+
+            $('.new-item-chapter').hide(); // Скрываем все
+
+            activeFilters.forEach(value => { // Показываем только нужные
+                $('.new-item-chapter[data-category*="' + value + '"]').show();
+            });
+
+        } else {
+            $('.new-item-chapter').show();
+        }
+
+
+        /* Скрываем / показываем ярлычки фильтров */
+
+        $('.filter__item--selected').removeClass('filter__item--selected'); // Скрываем все
+
+        activeFilters.forEach(value => {
+            $('.filter__item[data-filter="' + value + '"]').addClass('filter__item--selected'); // Показываем только нужные
+        });
+
+    }
+
+
+    $('.filter__item').on('click', function () {
+        if( ! $(this).hasClass('filter__item--selected') ) {
+            activeFilters.add( $(this).data('filter') );
+        } else {
+            activeFilters.delete( $(this).data('filter') );
+        }
+        runFilter();
+    });
+
+    $('.filter__reset').on('click', function () {
+        activeFilters.clear();
+        runFilter();
+    });
+});
 
 
 // function setItemTypeImg(data, i){
