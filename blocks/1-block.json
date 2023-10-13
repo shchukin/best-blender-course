@@ -13,10 +13,10 @@
     "lessons":"11",
     "time":"7 ч 50 мин",
     "level":"Любой",
+    "bestseller": true,
     "category": [
         "modeling",
         "lighting",
-        "bestseller",
         "mad-rabbit",
         "for-illustrators",
         "for-designers",

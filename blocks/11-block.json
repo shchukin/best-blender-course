@@ -13,12 +13,12 @@
     "lessons":"16",
     "time":" 7 ч 5 мин",
     "level":"Средняя",
+    "bestseller": true,
     "category": [
         "modeling",
         "characters",
         "lighting",
         "texturing",
-        "bestseller",
         "mad-rabbit",
         "for-illustrators",
         "with-experience"

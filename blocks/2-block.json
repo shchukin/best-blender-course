@@ -13,12 +13,12 @@
     "lessons":"6",
     "time":"5 ч 55 мин",
     "level":"Новичок",
+    "bestseller": true,
     "category": [
         "modeling",
         "characters",
         "lighting",
         "texturing",
-        "bestseller",
         "mad-rabbit",
         "for-designers",
         "from-scratch"
