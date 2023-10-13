@@ -13,6 +13,16 @@
     "lessons":"8",
     "time":" 5 ч 30 мин",
     "level":"Средняя",
+    "filter": [
+        "modeling",
+        "characters",
+        "rigging",
+        "animation",
+        "bestseller",
+        "mad-rabbit",
+        "for-illustrators",
+        "with-experience"
+    ],
     "icons":[
         "blender"
     ],

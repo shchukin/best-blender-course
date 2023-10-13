@@ -13,6 +13,14 @@
     "lessons":"12",
     "time":"5 ч 10 мин",
     "level":"Средняя",
+    "filter": [
+        "characters",
+        "animation",
+        "texturing",
+        "another-speaker",
+        "for-illustrators",
+        "with-experience"
+    ],
     "icons":[
         "blender"
     ],

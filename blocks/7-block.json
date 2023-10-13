@@ -13,6 +13,11 @@
     "lessons":"18",
     "time":"7 ч 40 мин",
     "level":"Новичок",
+    "filter": [
+        "lighting",
+        "another-speaker",
+        "with-experience"
+    ],
     "icons":[
         "blender",
         "ps"

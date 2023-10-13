@@ -13,6 +13,13 @@
     "lessons":"25",
     "time":"20 ч 40 мин",
     "level":"Средняя",
+    "filter": [
+        "rigging",
+        "animation",
+        "another-speaker",
+        "for-designers",
+        "with-experience"
+    ],
     "icons":[
         "blender"
     ],

@@ -13,6 +13,16 @@
     "lessons":"6",
     "time":"5 ч 55 мин",
     "level":"Новичок",
+    "filter": [
+        "modeling",
+        "characters",
+        "lighting",
+        "texturing",
+        "bestseller",
+        "mad-rabbit",
+        "for-designers",
+        "from-scratch"
+    ],
     "icons":[
         "blender",
         "ps"

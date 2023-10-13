@@ -13,6 +13,13 @@
     "lessons":"27",
     "time":"9 ч 40 мин",
     "level":"Новичок",
+    "filter": [
+        "characters",
+        "rigging",
+        "another-speaker",
+        "for-illustrators",
+        "with-experience"
+    ],
     "icons":[
         "blender",
         "pt",

@@ -13,6 +13,16 @@
     "lessons":"13",
     "time":"5 ч 10 мин",
     "level":"Новичок",
+    "filter": [
+        "modeling",
+        "characters",
+        "rigging",
+        "animation",
+        "mad-rabbit",
+        "for-illustrators",
+        "for-designers",
+        "from-scratch"
+    ],
     "icons":[
         "ai",
         "ae",

@@ -13,6 +13,15 @@
     "lessons":"11",
     "time":"7 ч 50 мин",
     "level":"Любой",
+    "filter": [
+        "modeling",
+        "lighting",
+        "bestseller",
+        "mad-rabbit",
+        "for-illustrators",
+        "for-designers",
+        "from-scratch"
+    ],
     "icons":[
         "blender"
     ],
