@@ -341,68 +341,41 @@ function setItemTypeVideo(data, i){
 
 };
 
+
+/* Фильтры */
 $(document).ready(function () {
 
-    const filters = [
-        "modeling",
-        "characters",
-        "rigging",
-        "animation",
-        "lighting",
-        "texturing",
-        "bestseller",
-        "mad-rabbit",
-        "another-speaker",
-        "for-illustrators",
-        "for-designers",
-        "from-scratch",
-        "with-experience"
-    ];
+    /* Выбор фильтра по клику на него */
+    $('.filter__item').on('click', function () {
+        $(this).toggleClass('filter__item--selected');
+        runFilter();
+    });
 
-    let activeFilters = new Set();
+    /* Сброс фильтра по клику на "Сбросить" */
+    $('.filter__reset').on('click', function () {
+        $('.filter__item--selected').removeClass('filter__item--selected');
+        runFilter();
+    });
 
+    /* Динамика скрытия/показа плиток в зависимости от выбранного фильтра */
     function runFilter() {
 
-        /* Скрываем / показываем плитки */
-
-        /* Если хотя бы один фильтр активен */
-        if( activeFilters.size ) {
-
-            $('.new-item-chapter').hide(); // Скрываем все
-
-            activeFilters.forEach(value => { // Показываем только нужные
-                $('.new-item-chapter[data-category*="' + value + '"]').show();
-            });
-
-        } else {
-            $('.new-item-chapter').show();
-        }
-
-
-        /* Скрываем / показываем ярлычки фильтров */
-
-        $('.filter__item--selected').removeClass('filter__item--selected'); // Скрываем все
-
-        activeFilters.forEach(value => {
-            $('.filter__item[data-filter="' + value + '"]').addClass('filter__item--selected'); // Показываем только нужные
+        /* Получаем списк активных фильтров */
+        let currentFilters = [];
+        $('.filter__item--selected').each(function () {
+            currentFilters.push($(this).data('filter'));
         });
 
+        /* Проверяем, каждый элемент на то, чтобы он включал в себя все выбранные категории */
+        $('.new-item-chapter').each(function () {
+            if (currentFilters.every(item => $(this).data('category').includes(item))) { // Если блок включает в себя все категории
+                $(this).show();
+            } else {
+                $(this).hide();
+            }
+        });
     }
 
-
-    $('.filter__item').on('click', function () {
-        if( ! $(this).hasClass('filter__item--selected') ) {
-            activeFilters.add( $(this).data('filter') );
-        } else {
-            activeFilters.delete( $(this).data('filter') );
-        }
-        runFilter();
-    });
-
-    $('.filter__reset').on('click', function () {
-        activeFilters.clear();
-        runFilter();
-    });
 });
 
 
