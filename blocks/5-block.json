@@ -13,7 +13,7 @@
     "lessons":"12",
     "time":"6 ч 40 мин",
     "level":"Новичок",
-    "filter": [
+    "category": [
         "characters",
         "another-speaker",
         "from-scratch"

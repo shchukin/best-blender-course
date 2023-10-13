@@ -13,7 +13,7 @@
     "lessons":"10",
     "time":"4 ч 50 мин",
     "level":"Новичок",
-    "filter": [
+    "category": [
         "modeling",
         "lighting",
         "texturing",

@@ -13,7 +13,7 @@
     "lessons":"12",
     "time":"5 ч 10 мин",
     "level":"Средняя",
-    "filter": [
+    "category": [
         "characters",
         "animation",
         "texturing",

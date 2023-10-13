@@ -13,7 +13,7 @@
     "lessons":"8",
     "time":" 5 ч 30 мин",
     "level":"Средняя",
-    "filter": [
+    "category": [
         "modeling",
         "characters",
         "rigging",
